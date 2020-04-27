@@ -29,36 +29,32 @@ def is_palindrome_iterative(text):
     # to verify that your iterative implementation passes all tests
 
 
-def is_palindrome_recursive(text, left=None, right=None):
+def is_palindrome_recursive(text, left=0, right=0):
     # TODO: implement the is_palindrome function recursively here
     # BASE CASE
-    if left == right:
-        return True
     if text[left] != text[right]:
         return False
-
-    # recursive case (calling function inside itself)
-    if left < right:
-        return is_palindrome_recursive(text, left + 1, right - 1)
-    return True
+    if left == right or left > right:
+        return True
+    return is_palindrome_recursive(text, left + 1, right - 1)
     # once implemented, change is_palindrome to call is_palindrome_recursive
     # to verify that your iterative implementation passes all tests
 
 
 def main():
-    # import sys
-    # args = sys.argv[1:]  # Ignore script file name
-    # if len(args) > 0:
-    #     for arg in args:
-    #         is_pal = is_palindrome(arg)
-    #         result = 'PASS' if is_pal else 'FAIL'
-    #         is_str = 'is' if is_pal else 'is not'
-    #         print('{}: {} {} a palindrome'.format(result, repr(arg), is_str))
-    # else:
-    #     print('Usage: {} string1 string2 ... stringN'.format(sys.argv[0]))
-    #     print('  checks if each argument given is a palindrome')
-    print(is_palindrome_recursive("racecar"))
-    print(is_palindrome_iterative("tacocar"))
+    import sys
+    args = sys.argv[1:]  # Ignore script file name
+    if len(args) > 0:
+        for arg in args:
+            is_pal = is_palindrome(arg)
+            result = 'PASS' if is_pal else 'FAIL'
+            is_str = 'is' if is_pal else 'is not'
+            print('{}: {} {} a palindrome'.format(result, repr(arg), is_str))
+    else:
+        print('Usage: {} string1 string2 ... stringN'.format(sys.argv[0]))
+        print('  checks if each argument given is a palindrome')
+    # print(is_palindrome_recursive("racecar"))
+    # print(is_palindrome_iterative("tacocar"))
 
 
 if __name__ == '__main__':
