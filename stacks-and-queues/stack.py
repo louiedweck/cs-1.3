@@ -19,6 +19,7 @@ class LinkedStack(object):
         """Return True if this stack is empty, or False otherwise."""
         if self.list.is_empty() == 0:
             return True
+        return False
 
     def length(self):
         """Return the number of items in this stack."""
@@ -68,6 +69,7 @@ class ArrayStack(object):
         """Return True if this stack is empty, or False otherwise."""
         if len(self.list) == 0:
             return True
+        return False
 
     def length(self):
         """Return the number of items in this stack."""
